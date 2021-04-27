@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/audiowide</item>-->
+        <item name="android:fontFamily">@font/audiowide</item>-->
+        <item name="buttonColor">@color/colorYellow</item>
+    </style>
+
+    <style name="PinkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPink</item>
+        <item name="colorPrimaryDark">@color/colorPinkDark</item>
+        <item name="colorAccent">@color/colorPinkLight</item>
+        <item name="fontFamily">@font/audiowide</item>-->
+        <item name="android:fontFamily">@font/audiowide</item>-->
+        <item name="buttonColor">@color/colorYellow</item>
+    </style>
+
+    <style name="AppButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">?attr/buttonColor</item>
+    </style>
+
+    <style name="AppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    </style>
+
+</resources>
