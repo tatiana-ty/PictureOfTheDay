@@ -1,4 +1,4 @@
-package geekbarains.material.model
+package geekbrains.material.model
 
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -14,10 +14,10 @@ class PODRetrofitImpl {
 
     fun getRetrofitImpl(): PictureOfTheDayAPI {
         val podRetrofit = Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-            .client(createOkHttpClient(PODInterceptor()))
-            .build()
+                .baseUrl(baseUrl)
+                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+                .client(createOkHttpClient(PODInterceptor()))
+                .build()
         return podRetrofit.create(PictureOfTheDayAPI::class.java)
     }
 

@@ -5,8 +5,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="fontFamily">@font/audiowide</item>-->
-        <item name="android:fontFamily">@font/audiowide</item>-->
+        <item name="fontFamily">@font/audiowide</item>
+        <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
     </style>
 
@@ -14,8 +14,8 @@
         <item name="colorPrimary">@color/colorPink</item>
         <item name="colorPrimaryDark">@color/colorPinkDark</item>
         <item name="colorAccent">@color/colorPinkLight</item>
-        <item name="fontFamily">@font/audiowide</item>-->
-        <item name="android:fontFamily">@font/audiowide</item>-->
+        <item name="fontFamily">@font/audiowide</item>
+        <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
     </style>
 
@@ -27,4 +27,7 @@
         <item name="backgroundTint">?attr/colorPrimaryDark</item>
     </style>
 
+    <style name="chipTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
+        <item name="android:fontFamily">@font/audiowide</item>
+    </style>
 </resources>

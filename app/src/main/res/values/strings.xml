@@ -12,4 +12,9 @@
     <string name="day_1">Сегодня</string>
     <string name="day_2">Вчера</string>
     <string name="day_3">Позавчера</string>
+    <string name="people_in_space_2">people in space right now</string>
+    <string name="people_in_space_1">There are</string>
+    <string name="menu_pod">PoD</string>
+    <string name="menu_people_in_space">People in space</string>
+    <string name="menu_settings">Settings</string>
 </resources>

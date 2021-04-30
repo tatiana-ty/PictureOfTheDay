@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bottom_view_pod"
+        android:icon="@drawable/ic_system"
+        android:title="@string/menu_pod" />
+
+    <item
+        android:id="@+id/bottom_view_people"
+        android:icon="@drawable/ic_earth"
+        android:title="@string/menu_people_in_space" />
+
+    <item
+        android:id="@+id/bottom_view_settings"
+        android:icon="@drawable/ic_settings_menu"
+        android:title="@string/menu_settings" />
+</menu>
