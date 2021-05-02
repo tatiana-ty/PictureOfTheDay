@@ -8,6 +8,7 @@
         <item name="fontFamily">@font/audiowide</item>
         <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
+        <item name="fabColor">@color/colorBlueLight</item>
     </style>
 
     <style name="PinkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -17,17 +18,18 @@
         <item name="fontFamily">@font/audiowide</item>
         <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
+        <item name="fabColor">@color/colorPinkLight</item>
     </style>
 
     <style name="AppButton" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">?attr/buttonColor</item>
     </style>
 
-    <style name="AppBar" parent="Widget.MaterialComponents.BottomAppBar">
-        <item name="backgroundTint">?attr/colorPrimaryDark</item>
+    <style name="Widget.App.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="backgroundTint">?attr/fabColor</item>
     </style>
 
-    <style name="chipTextAppearance" parent="TextAppearance.MaterialComponents.Chip">
-        <item name="android:fontFamily">@font/audiowide</item>
+    <style name="AppBar" parent="Widget.MaterialComponents.BottomAppBar">
+        <item name="backgroundTint">?attr/colorPrimaryDark</item>
     </style>
 </resources>

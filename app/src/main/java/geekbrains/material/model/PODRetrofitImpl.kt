@@ -14,17 +14,20 @@ class PODRetrofitImpl {
 
     fun getRetrofitImpl(): PictureOfTheDayAPI {
         val podRetrofit = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-                .client(createOkHttpClient(PODInterceptor()))
-                .build()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .client(createOkHttpClient(PODInterceptor()))
+            .build()
         return podRetrofit.create(PictureOfTheDayAPI::class.java)
     }
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(interceptor)
-        httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpClient.addInterceptor(httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        })
         return httpClient.build()
     }
 

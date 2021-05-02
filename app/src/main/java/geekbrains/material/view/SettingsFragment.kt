@@ -12,8 +12,8 @@ import geekbrains.material.R
 class SettingsFragment : Fragment() {
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.settings_fragment, container, false)
     }
@@ -23,9 +23,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         button = view.findViewById(R.id.change_theme)
-        button.setOnClickListener({
+        button.setOnClickListener {
             (activity as MainActivity).changeTheme()
-            fragmentManager?.popBackStack()
-        })
+        }
     }
 }

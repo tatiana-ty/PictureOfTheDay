@@ -13,10 +13,10 @@ import retrofit2.Response
 
 
 class PeopleInSpaceViewModel(
-        private val liveDataForViewToObserve: MutableLiveData<PeopleInSpaceData> = MutableLiveData(),
-        private val retrofitImpl: PeopleInSpaceRetrofitImpl = PeopleInSpaceRetrofitImpl()
+    private val liveDataForViewToObserve: MutableLiveData<PeopleInSpaceData> = MutableLiveData(),
+    private val retrofitImpl: PeopleInSpaceRetrofitImpl = PeopleInSpaceRetrofitImpl()
 ) :
-        ViewModel() {
+    ViewModel() {
 
     fun getData(): LiveData<PeopleInSpaceData> {
         sendServerRequest()
@@ -26,43 +26,43 @@ class PeopleInSpaceViewModel(
     private fun sendServerRequest() {
 
         liveDataForViewToObserve.value =
-                PeopleInSpaceData.Loading(null)
+            PeopleInSpaceData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PeopleInSpaceData.Error(Throwable("You need API key"))
         } else {
             retrofitImpl.getRetrofitImpl().getPeopleInSpace().enqueue(object :
-                    Callback<PeopleInSpaceServerResponseData> {
+                Callback<PeopleInSpaceServerResponseData> {
                 override fun onResponse(
-                        call: Call<PeopleInSpaceServerResponseData>,
-                        response: Response<PeopleInSpaceServerResponseData>
+                    call: Call<PeopleInSpaceServerResponseData>,
+                    response: Response<PeopleInSpaceServerResponseData>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         liveDataForViewToObserve.value =
-                                PeopleInSpaceData.Success(
-                                        response.body()!!
-                                )
+                            PeopleInSpaceData.Success(
+                                response.body()!!
+                            )
                     } else {
                         val message = response.message()
                         if (message.isNullOrEmpty()) {
                             liveDataForViewToObserve.value =
-                                    PeopleInSpaceData.Error(
-                                            Throwable("Unidentified error")
-                                    )
+                                PeopleInSpaceData.Error(
+                                    Throwable("Unidentified error")
+                                )
                         } else {
                             liveDataForViewToObserve.value =
-                                    PeopleInSpaceData.Error(
-                                            Throwable(message)
-                                    )
+                                PeopleInSpaceData.Error(
+                                    Throwable(message)
+                                )
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<PeopleInSpaceServerResponseData>, t: Throwable) {
                     liveDataForViewToObserve.value =
-                            PeopleInSpaceData.Error(
-                                    t
-                            )
+                        PeopleInSpaceData.Error(
+                            t
+                        )
                 }
             })
         }

@@ -14,17 +14,20 @@ class PeopleInSpaceRetrofitImpl {
 
     fun getRetrofitImpl(): PeopleInSpaceAPI {
         val podRetrofit = Retrofit.Builder()
-                .baseUrl(baseUrl)
-                .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
-                .client(createOkHttpClient(PeopleInSpaceInterceptor()))
-                .build()
+            .baseUrl(baseUrl)
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
+            .client(createOkHttpClient(PeopleInSpaceInterceptor()))
+            .build()
         return podRetrofit.create(PeopleInSpaceAPI::class.java)
     }
 
     private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
         httpClient.addInterceptor(interceptor)
-        httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpClient.addInterceptor(httpLoggingInterceptor.apply {
+            httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        })
         return httpClient.build()
     }
 
