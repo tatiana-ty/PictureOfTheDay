@@ -9,6 +9,7 @@
         <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
         <item name="fabColor">@color/colorBlueLight</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="PinkTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -19,6 +20,7 @@
         <item name="android:fontFamily">@font/audiowide</item>
         <item name="buttonColor">@color/colorYellow</item>
         <item name="fabColor">@color/colorPinkLight</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="AppButton" parent="Widget.MaterialComponents.Button">

@@ -3,11 +3,16 @@ package geekbrains.material.view
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.transition.ChangeBounds
+import android.transition.ChangeImageTransform
+import android.transition.TransitionManager
+import android.transition.TransitionSet
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +25,7 @@ import com.google.android.material.chip.Chip
 import geekbrains.material.R
 import geekbrains.material.model.PictureOfTheDayData
 import geekbrains.material.viewmodel.PictureOfTheDayViewModel
+import kotlinx.android.synthetic.main.main_activity.*
 import kotlinx.android.synthetic.main.picture_of_the_day_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
@@ -32,6 +38,7 @@ class PictureOfTheDayFragment : Fragment() {
     private lateinit var description: TextView
     private lateinit var youtubePlayer: WebView
     private var day = 1
+    private var isExpanded = false
     private val viewModel: PictureOfTheDayViewModel by lazy {
         ViewModelProviders.of(this).get(PictureOfTheDayViewModel::class.java)
     }
@@ -55,20 +62,20 @@ class PictureOfTheDayFragment : Fragment() {
         description = view.findViewById(R.id.bottom_sheet_description)
         youtubePlayer = view.findViewById(R.id.youtube_player)
         day1Chip = view.findViewById(R.id.day_1)
-        day1Chip.setOnClickListener({
+        day1Chip.setOnClickListener {
             day = 1
             viewModel.getData(day)
-        })
+        }
         day2Chip = view.findViewById(R.id.day_2)
-        day2Chip.setOnClickListener({
+        day2Chip.setOnClickListener{
             day = 2
             viewModel.getData(day)
-        })
+        }
         day3Chip = view.findViewById(R.id.day_3)
-        day3Chip.setOnClickListener({
+        day3Chip.setOnClickListener{
             day = 3
             viewModel.getData(day)
-        })
+        }
         input_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
