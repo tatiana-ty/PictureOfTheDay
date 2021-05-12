@@ -16,5 +16,10 @@
     <string name="people_in_space_1">There are</string>
     <string name="menu_pod">PoD</string>
     <string name="menu_people_in_space">People in space</string>
+    <string name="menu_notes">Notes</string>
     <string name="menu_settings">Settings</string>
+    <string name="delete_note">Do you really want to delete this note?</string>
+    <string name="note_added">Note saved</string>
+    <string name="yes">Yes</string>
+    <string name="chancel">Chancel</string>
 </resources>
