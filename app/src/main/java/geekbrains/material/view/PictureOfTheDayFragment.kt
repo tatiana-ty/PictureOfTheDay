@@ -1,8 +1,13 @@
 package geekbrains.material.view
 
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BulletSpan
+import android.text.style.ForegroundColorSpan
 import android.transition.ChangeBounds
 import android.transition.ChangeImageTransform
 import android.transition.TransitionManager
@@ -89,12 +94,22 @@ class PictureOfTheDayFragment : Fragment() {
                 val serverResponseData = data.serverResponseData
                 val url = serverResponseData.url
                 if (url.isNullOrEmpty()) {
-                    //showError("Сообщение, что ссылка пустая")
                     toast("Link is empty")
                 } else {
-                    //showSuccess()
-                    title.text = serverResponseData.title
-                    description.text = serverResponseData.explanation
+                    val spannable = SpannableString(serverResponseData.title)
+                    spannable.setSpan(
+                            BulletSpan(10),
+                            0, 1,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    title.text = spannable
+                    val spannableText = SpannableString(serverResponseData.explanation)
+                    spannableText.setSpan(
+                            ForegroundColorSpan(Color.RED),
+                            0, 1,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    description.text = spannableText
                     if (serverResponseData.mediaType.equals("video")) {
                         image_view.visibility = View.INVISIBLE
                         youtubePlayer.visibility = View.VISIBLE
@@ -116,7 +131,6 @@ class PictureOfTheDayFragment : Fragment() {
                 //showLoading()
             }
             is PictureOfTheDayData.Error -> {
-                //showError(data.error.message)
                 toast(data.error.message)
             }
         }
