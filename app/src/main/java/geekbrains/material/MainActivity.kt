@@ -21,24 +21,40 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.bottom_view_pod -> {
                     supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.slide_in,
+                            R.anim.fade_out
+                        )
                         .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
                         .commitAllowingStateLoss()
                     true
                 }
                 R.id.bottom_view_people -> {
                     supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.slide_in,
+                            R.anim.fade_out
+                        )
                         .replace(R.id.activity_api_bottom_container, PeopleInSpaceFragment())
                         .commitAllowingStateLoss()
                     true
                 }
                 R.id.bottom_view_settings -> {
                     supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.slide_in,
+                            R.anim.fade_out
+                        )
                         .replace(R.id.activity_api_bottom_container, SettingsFragment())
                         .commitAllowingStateLoss()
                     true
                 }
                 else -> {
                     supportFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.slide_in,
+                            R.anim.fade_out
+                        )
                         .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
                         .commitAllowingStateLoss()
                     true
