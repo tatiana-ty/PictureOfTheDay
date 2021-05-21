@@ -11,4 +11,6 @@
     <color name="colorPinkDark">#CF0349</color>
     <color name="colorPinkLight">#EF84AB</color>
     <color name="colorBlueLight">#505EAF</color>
+
+    <color name="colorAccent40Alfa">#662962FF</color>
 </resources>

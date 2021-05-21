@@ -8,6 +8,8 @@ import android.widget.Button
 import androidx.fragment.app.Fragment
 import geekbrains.material.MainActivity
 import geekbrains.material.R
+import geekbrains.material.model.Constants
+import kotlinx.android.synthetic.main.activity_api_bottom.*
 
 class SettingsFragment : Fragment() {
 
@@ -24,7 +26,8 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         button = view.findViewById(R.id.change_theme)
         button.setOnClickListener {
-            (activity as MainActivity).changeTheme()
+            Constants.sPrefs?.storeInt(Constants.TAG_THEME, Constants.PINK_THEME)
+            activity!!.recreate()
         }
     }
 }

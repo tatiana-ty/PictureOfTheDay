@@ -2,13 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/bottom_view_pod"
-        android:icon="@drawable/ic_camera"
+        android:icon="@drawable/ic_pod_menu"
         android:title="@string/menu_pod" />
 
     <item
         android:id="@+id/bottom_view_people"
         android:icon="@drawable/ic_earth"
         android:title="@string/menu_people_in_space" />
+
+    <item
+        android:id="@+id/bottom_view_notes"
+        android:icon="@drawable/ic_notes_menu"
+        android:title="@string/menu_notes" />
 
     <item
         android:id="@+id/bottom_view_settings"
