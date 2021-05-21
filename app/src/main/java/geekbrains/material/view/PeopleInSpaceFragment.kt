@@ -29,12 +29,12 @@ class PeopleInSpaceFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getData()
-                .observe(viewLifecycleOwner, Observer<PeopleInSpaceData> { renderData(it) })
+            .observe(viewLifecycleOwner, Observer<PeopleInSpaceData> { renderData(it) })
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.people_in_space_fragment, container, false)
     }

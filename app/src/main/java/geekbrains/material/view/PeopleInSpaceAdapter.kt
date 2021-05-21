@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import geekbrains.material.R
 
 class PeopleInSpaceAdapter(private val names: List<String>) :
-        RecyclerView.Adapter<PeopleInSpaceAdapter.MyViewHolder>() {
+    RecyclerView.Adapter<PeopleInSpaceAdapter.MyViewHolder>() {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView? = null
@@ -20,8 +20,8 @@ class PeopleInSpaceAdapter(private val names: List<String>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView =
-                LayoutInflater.from(parent.context)
-                        .inflate(R.layout.people_in_space_item, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.people_in_space_item, parent, false)
         println(names.size)
         return MyViewHolder(itemView)
     }

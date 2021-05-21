@@ -14,32 +14,33 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(themeId)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_api_bottom)
         bottom_navigation_view.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.bottom_view_pod -> {
                     supportFragmentManager.beginTransaction()
-                            .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
-                            .commitAllowingStateLoss()
+                        .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
+                        .commitAllowingStateLoss()
                     true
                 }
                 R.id.bottom_view_people -> {
                     supportFragmentManager.beginTransaction()
-                            .replace(R.id.activity_api_bottom_container, PeopleInSpaceFragment())
-                            .commitAllowingStateLoss()
+                        .replace(R.id.activity_api_bottom_container, PeopleInSpaceFragment())
+                        .commitAllowingStateLoss()
                     true
                 }
                 R.id.bottom_view_settings -> {
                     supportFragmentManager.beginTransaction()
-                            .replace(R.id.activity_api_bottom_container, SettingsFragment())
-                            .commitAllowingStateLoss()
+                        .replace(R.id.activity_api_bottom_container, SettingsFragment())
+                        .commitAllowingStateLoss()
                     true
                 }
                 else -> {
                     supportFragmentManager.beginTransaction()
-                            .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
-                            .commitAllowingStateLoss()
+                        .replace(R.id.activity_api_bottom_container, PictureOfTheDayFragment())
+                        .commitAllowingStateLoss()
                     true
                 }
             }
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun changeTheme() {
+        bottom_navigation_view.selectedItemId = R.id.bottom_view_pod
         when (themeId) {
             R.style.AppTheme -> themeId = R.style.PinkTheme
             R.style.PinkTheme -> themeId = R.style.AppTheme

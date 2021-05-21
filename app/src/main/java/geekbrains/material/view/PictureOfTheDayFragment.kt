@@ -39,12 +39,12 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel.getData(day)
-                .observe(viewLifecycleOwner, Observer<PictureOfTheDayData> { renderData(it) })
+            .observe(viewLifecycleOwner, Observer<PictureOfTheDayData> { renderData(it) })
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.picture_of_the_day_fragment, container, false)
     }
@@ -69,7 +69,6 @@ class PictureOfTheDayFragment : Fragment() {
             day = 3
             viewModel.getData(day)
         })
-        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
         input_layout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")

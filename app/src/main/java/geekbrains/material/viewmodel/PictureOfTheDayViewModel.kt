@@ -14,10 +14,10 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class PictureOfTheDayViewModel(
-        private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
-        private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
+    private val liveDataForViewToObserve: MutableLiveData<PictureOfTheDayData> = MutableLiveData(),
+    private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()
 ) :
-        ViewModel() {
+    ViewModel() {
 
     fun getData(day: Int): LiveData<PictureOfTheDayData> {
         sendServerRequest(day)
@@ -42,43 +42,43 @@ class PictureOfTheDayViewModel(
             }
         }
         liveDataForViewToObserve.value =
-                PictureOfTheDayData.Loading(null)
+            PictureOfTheDayData.Loading(null)
         val apiKey: String = BuildConfig.NASA_API_KEY
         if (apiKey.isBlank()) {
             PictureOfTheDayData.Error(Throwable("You need API key"))
         } else {
             retrofitImpl.getRetrofitImpl().getPictureOfTheDay(date, apiKey).enqueue(object :
-                    Callback<PODServerResponseData> {
+                Callback<PODServerResponseData> {
                 override fun onResponse(
-                        call: Call<PODServerResponseData>,
-                        response: Response<PODServerResponseData>
+                    call: Call<PODServerResponseData>,
+                    response: Response<PODServerResponseData>
                 ) {
                     if (response.isSuccessful && response.body() != null) {
                         liveDataForViewToObserve.value =
-                                PictureOfTheDayData.Success(
-                                        response.body()!!
-                                )
+                            PictureOfTheDayData.Success(
+                                response.body()!!
+                            )
                     } else {
                         val message = response.message()
                         if (message.isNullOrEmpty()) {
                             liveDataForViewToObserve.value =
-                                    PictureOfTheDayData.Error(
-                                            Throwable("Unidentified error")
-                                    )
+                                PictureOfTheDayData.Error(
+                                    Throwable("Unidentified error")
+                                )
                         } else {
                             liveDataForViewToObserve.value =
-                                    PictureOfTheDayData.Error(
-                                            Throwable(message)
-                                    )
+                                PictureOfTheDayData.Error(
+                                    Throwable(message)
+                                )
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<PODServerResponseData>, t: Throwable) {
                     liveDataForViewToObserve.value =
-                            PictureOfTheDayData.Error(
-                                    t
-                            )
+                        PictureOfTheDayData.Error(
+                            t
+                        )
                 }
             })
         }
