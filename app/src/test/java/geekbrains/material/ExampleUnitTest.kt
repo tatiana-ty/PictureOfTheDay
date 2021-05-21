@@ -1,4 +1,4 @@
-package geekbarains.material
+package geekbrains.material
 
 import org.junit.Assert.assertEquals
 import org.junit.Test

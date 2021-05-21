@@ -1,6 +1,5 @@
-package geekbarains.material.model
+package geekbrains.material.model
 
-import geekbarains.material.model.PODServerResponseData
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
